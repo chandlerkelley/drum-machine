@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Drum Machine</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+	<div class="drum-machine" ng-app="drumMachine" ng-controller="drumCtrl as $ctrl">
+		<div class="instrumentsOnDeck">
+		</div>
+		<div class="instrumentsInPlay">
+			<div class="light-bar">
+				<div ng-repeat="beat in $ctrl.beats" class="light" ng-class="{'quaver' : beat.quaver, 'playing' : beat.playing}"></div>
+			</div>
+			<div class="instrument-container" ng-repeat="instrument in $ctrl.instruments">
+				<div class="instrument-name">{{instrument.name}}</div>
+				<div class="dot-container">
+					<div ng-repeat="note in instrument.notes track by $index"
+					ng-class="{'note-on' : note.value, 'note-off' : !(note-value), 'quaver' : note.quaver}"
+					ng-click="$ctrl.noteOn(note)"></div>
+				</div>
+			</div>
+			<div class="playButton" ng-click="$ctrl.playSong()"><h2>Start song</h2></div>
+			<h2>Beats per minute</h2><input class="bpm-input" type="number" ng-model="$ctrl.bpm">
+		</div>
+		<audio id="kick"><source src=audio/drum-samples/kick.wav></audio>
+		<audio id="snare"><source src=audio/drum-samples/snare.wav></audio>
+		<audio id="hatClosed"><source src=audio/drum-samples/hatClosed.wav></audio>
+		<audio id="hatOpen"><source src=audio/drum-samples/hatOpen.wav></audio>
+		<audio id="tom"><source src=audio/drum-samples/tom.wav></audio>
+		<audio id="clap"><source src=audio/drum-samples/clap.wav></audio>
+		<audio id="tambourine"><source src=audio/drum-samples/tambourine.wav></audio>
+	</div>
+</body>
+</html>
