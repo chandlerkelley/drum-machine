@@ -6,15 +6,18 @@
 	width: 90%;
 	margin: 20px auto;
 	display: flex;
+	background-color: #CCC;
+	border-radius: 8px;
 }
 
 .instrumentsOnDeck {
-	background: #aaa;
 	width: 20%;
+	margin-left: 8px;
 }
 
 .instrumentsInPlay {
 	width: 80%;
+	margin-right: 8px;
 }
 
 .navButton {
@@ -23,6 +26,11 @@
 	border-radius: 10px;
 	border: solid 2px #000;
 	margin: 10px;
+	background-color: #DDD;
+}
+
+.navButton:hover {
+	background-color: #EEE;
 }
 
 .label {
@@ -62,9 +70,14 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin: 20px 0;
+	margin: 16px 0;
 	border-radius: 6px;
 	border: solid 1px #000;
+	background-color: #DDD;
+}
+
+.instrument-name {
+	margin-left: 15px;
 }
 
 .dot-container {
@@ -86,6 +99,10 @@
 	background-color: #000;
 	border: 2px solid #000;
 }
+
+/*.note-off:hover {
+	background-color: #444;
+}*/
 
 .note-on {
 	display: inline-block;

@@ -16,7 +16,7 @@ angular.module("drumMachine", [])
 				{ playing : false , quaver: true}, { playing : false }, { playing : false }, { playing : false } ];
 	this.instruments = [
 		{ 
-			name: "Kick",
+			name: "KICK",
 			sound: this.soundMaker("public/audio/drum-samples/kick.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
@@ -24,7 +24,7 @@ angular.module("drumMachine", [])
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false } ]
 		},
 		{
-			name: "Snare",
+			name: "SNARE",
 			sound: this.soundMaker("public/audio/drum-samples/snare.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
@@ -32,7 +32,7 @@ angular.module("drumMachine", [])
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false } ]
 		},
 		{
-			name: "Closed Hat",
+			name: "CLOSED HAT",
 			sound: this.soundMaker("public/audio/drum-samples/hatClosed.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
@@ -40,7 +40,7 @@ angular.module("drumMachine", [])
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false } ]
 		},
 		{
-			name: "Open Hat",
+			name: "OPEN HAT",
 			sound: this.soundMaker("public/audio/drum-samples/hatOpen.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
@@ -48,7 +48,7 @@ angular.module("drumMachine", [])
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false } ]
 		},
 		{
-			name: "Tom",
+			name: "TOM",
 			sound: this.soundMaker("public/audio/drum-samples/tom.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
@@ -56,7 +56,7 @@ angular.module("drumMachine", [])
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false } ]
 		},
 		{
-			name: "Clap",
+			name: "CLAP",
 			sound: this.soundMaker("public/audio/drum-samples/clap.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
@@ -64,7 +64,7 @@ angular.module("drumMachine", [])
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false } ]
 		},
 		{
-			name: "Tambourine",
+			name: "TAMBOURINE",
 			sound: this.soundMaker("public/audio/drum-samples/tambourine.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
