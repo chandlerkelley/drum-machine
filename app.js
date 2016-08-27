@@ -1,11 +1,21 @@
 "use strict";
-
-// var kick = getElementById("kick");
+// var soundMaker = function(source) {
+// 	var sound = document.createElement("audio");
+// 	sound.src = source;
+// 	return sound;
+// }
+// var kick = soundMaker("audio/drum-samples/kick.wav");
 
 
 angular.module("drumMachine", [])
 .controller("drumCtrl", function($interval) {
-	this.kick = getElementById("kick");
+	// this.kick = getElementById("kick");
+	this.soundMaker = function(source) {
+		var sound = document.createElement("audio");
+		sound.src = source;
+		return sound;
+	};
+	// this.kick = this.soundMaker("audio/drum-samples/kick.wav");
 	this.bpm = 120;
 	this.intervalTime = this.bpm * 400 / 60; 
 	this.beats = [ { playing : false , quaver: true}, { playing : false }, { playing : false }, { playing : false },
@@ -15,7 +25,7 @@ angular.module("drumMachine", [])
 	this.instruments = [
 		{ 
 			name: "Kick",
-			sound: this.kick,
+			sound: this.soundMaker("audio/drum-samples/kick.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false }, 
@@ -23,7 +33,7 @@ angular.module("drumMachine", [])
 		},
 		{
 			name: "Snare",
-			// sound: $snare,
+			sound: this.soundMaker("audio/drum-samples/snare.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false }, 
@@ -31,7 +41,7 @@ angular.module("drumMachine", [])
 		},
 		{
 			name: "Closed Hat",
-			// sound: $hatClosed,
+			sound: this.soundMaker("audio/drum-samples/hatClosed.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false }, 
@@ -39,7 +49,7 @@ angular.module("drumMachine", [])
 		},
 		{
 			name: "Open Hat",
-			// sound: $hatOpen,
+			sound: this.soundMaker("audio/drum-samples/hatOpen.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false }, 
@@ -47,7 +57,7 @@ angular.module("drumMachine", [])
 		},
 		{
 			name: "Tom",
-			// sound: $tom,
+			sound: this.soundMaker("audio/drum-samples/tom.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false }, 
@@ -55,7 +65,7 @@ angular.module("drumMachine", [])
 		},
 		{
 			name: "Tambourine",
-			// sound: $tambourine,
+			sound: this.soundMaker("audio/drum-samples/tambourine.wav"),
 			notes: [{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false },
 					{ value : false, quaver: true }, { value : false }, { value : false }, { value : false }, 
@@ -70,7 +80,7 @@ angular.module("drumMachine", [])
 		this.instruments.forEach( instrument => {
 			if (instrument.notes[this.songBeat].value) {
 				console.log(instrument.name + "plays note!");
-				instrument.sound.Play();
+				instrument.sound.play();
 			};
 		})
 	};
