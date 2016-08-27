@@ -11,9 +11,17 @@
 <body>
 	<div class="drum-machine" ng-app="drumMachine" ng-controller="drumCtrl as $ctrl">
 		<div class="instrumentsOnDeck">
-			<img class="navButton" ng-src="public/images/icons/{{$ctrl.playOrPause}}" ng-click="$ctrl.toggleSong()">
-			<img class="navButton" ng-src="public/images/icons/stop.svg" ng-click="$ctrl.stopSong()">
-			<h2 class="label">Tempo</h2><input class="bpm-input" type="number" ng-model="$ctrl.bpm">
+			<div class="controls">
+				<img class="navButton" ng-src="public/images/icons/{{$ctrl.playOrPause}}" ng-click="$ctrl.toggleSong()">
+				<img class="navButton" ng-src="public/images/icons/stop.svg" ng-click="$ctrl.stopSong()">
+				<div class="resetButton" ng-click="$ctrl.reset()">
+					<h2 class="label">RESET</h2>
+				</div>
+				<div class="tempo-container">
+					<h2 class="label">TEMPO</h2>
+					<input class="bpm-input" type="number" ng-model="$ctrl.bpm">
+				</div>
+			</div>
 		</div>
 		<div class="instrumentsInPlay">
 			<div class="light-bar">

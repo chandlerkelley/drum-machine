@@ -123,5 +123,12 @@ angular.module("drumMachine", [])
 		})
 		this.songBeat = 0;
 		this.playOrPause = "play.svg";
-	}
+	};
+	this.reset = function() {
+		this.instruments.forEach( instrument => {
+			instrument.notes.forEach( note => {
+				note.value = false;
+			});
+		});
+	};
 });
