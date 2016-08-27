@@ -17,7 +17,7 @@ angular.module("drumMachine", [])
 	};
 	// this.kick = this.soundMaker("audio/drum-samples/kick.wav");
 	this.bpm = 120;
-	this.intervalTime = this.bpm * 400 / 60; 
+	this.intervalTime = Math.pow(this.bpm, -1) * 15000; // converted beats per minute to milliseconds per quaver 
 	this.beats = [ { playing : false , quaver: true}, { playing : false }, { playing : false }, { playing : false },
 				{ playing : false , quaver: true}, { playing : false }, { playing : false }, { playing : false },
 				{ playing : false , quaver: true}, { playing : false }, { playing : false }, { playing : false },
@@ -80,6 +80,7 @@ angular.module("drumMachine", [])
 		this.instruments.forEach( instrument => {
 			if (instrument.notes[this.songBeat].value) {
 				console.log(instrument.name + "plays note!");
+				instrument.sound.currentTime = 0;
 				instrument.sound.play();
 			};
 		})
@@ -88,7 +89,7 @@ angular.module("drumMachine", [])
 		$interval(() => {
 			console.log("Click");
 			this.playBeat();
-			this.songBeat = (this.songBeat+1) % 8;
+			this.songBeat = (this.songBeat+1) % 16;
 		}, this.intervalTime)
 	};
 });
