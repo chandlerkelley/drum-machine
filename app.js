@@ -15,7 +15,7 @@ angular.module("drumMachine", [])
 		sound.src = source;
 		return sound;
 	};
-	// this.kick = this.soundMaker("audio/drum-samples/kick.wav");
+	this.songIsPlaying = false;
 	this.bpm = 120;
 	this.intervalTime = Math.pow(this.bpm, -1) * 15000; // converted beats per minute to milliseconds per quaver 
 	this.beats = [ { playing : false , quaver: true}, { playing : false }, { playing : false }, { playing : false },
@@ -85,11 +85,27 @@ angular.module("drumMachine", [])
 			};
 		})
 	};
-	this.playSong = function() {
-		$interval(() => {
+	var stop;
+	this.playSong = function () {
+		this.songIsPlaying = true;
+		console.log("Is the song playing : " + this.songIsPlaying);
+		stop = $interval(() => {
 			console.log("Click");
 			this.playBeat();
 			this.songBeat = (this.songBeat+1) % 16;
-		}, this.intervalTime)
+		}, this.intervalTime);
+	};
+	this.stopSong = function () {
+		$interval.cancel(stop);
+		stop = undefined;
+		this.songIsPlaying = false;
+		console.log("Is the song playing : " + this.songIsPlaying);
+	}
+	this.toggleSong = function() {
+		if (this.songIsPlaying) {
+			this.stopSong();
+		} else {
+			this.playSong();
+		}
 	};
 });
