@@ -79,18 +79,22 @@ angular.module("drumMachine", [])
 	this.playBeat = function() {
 		this.instruments.forEach( instrument => {
 			if (instrument.notes[this.songBeat].value) {
-				console.log(instrument.name + "plays note!");
 				instrument.sound.currentTime = 0;
 				instrument.sound.play();
 			};
 		})
 	};
+	this.metronomeLight = function () {
+		this.beats.forEach( beat => {
+			beat.playing = false;
+		})
+		this.beats[this.songBeat].playing = true;
+	}
 	var stop;
 	this.playSong = function () {
 		this.songIsPlaying = true;
-		console.log("Is the song playing : " + this.songIsPlaying);
 		stop = $interval(() => {
-			console.log("Click");
+			this.metronomeLight();
 			this.playBeat();
 			this.songBeat = (this.songBeat+1) % 16;
 		}, this.intervalTime);
@@ -99,7 +103,6 @@ angular.module("drumMachine", [])
 		$interval.cancel(stop);
 		stop = undefined;
 		this.songIsPlaying = false;
-		console.log("Is the song playing : " + this.songIsPlaying);
 	}
 	this.toggleSong = function() {
 		if (this.songIsPlaying) {
