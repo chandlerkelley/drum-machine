@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>Angular Drum Machine</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="public/stylesheets/reset.css">
+	<link rel="stylesheet" type="text/css" href="public/stylesheets/style.css">
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
     <script src="app.js"></script>
@@ -10,6 +11,9 @@
 <body>
 	<div class="drum-machine" ng-app="drumMachine" ng-controller="drumCtrl as $ctrl">
 		<div class="instrumentsOnDeck">
+			<img class="navButton" ng-src="public/images/icons/{{$ctrl.playOrPause}}" ng-click="$ctrl.toggleSong()">
+			<img class="navButton" ng-src="public/images/icons/stop.svg" ng-click="$ctrl.stopSong()">
+			<h2 class="label">Tempo</h2><input class="bpm-input" type="number" ng-model="$ctrl.bpm">
 		</div>
 		<div class="instrumentsInPlay">
 			<div class="light-bar">
@@ -23,8 +27,6 @@
 					ng-click="$ctrl.noteOn(note)"></div>
 				</div>
 			</div>
-			<div class="toggleButton" ng-click="$ctrl.toggleSong()"><h2>Start song</h2></div>
-			<h2>Beats per minute</h2><input class="bpm-input" type="number" ng-model="$ctrl.bpm">
 		</div>
 	</div>
 </body>

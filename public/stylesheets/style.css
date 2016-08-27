@@ -1,3 +1,7 @@
+* {
+	font-family: "Helvetica", sans-serif;
+}
+
 .drum-machine {
 	width: 90%;
 	margin: 20px auto;
@@ -11,6 +15,23 @@
 
 .instrumentsInPlay {
 	width: 80%;
+}
+
+.navButton {
+	height: 80px;
+	width: 80px;
+	border-radius: 10px;
+	border: solid 2px #000;
+	margin: 10px;
+}
+
+.label {
+	font-size: 20px;
+}
+
+.bpm-input {
+	width: 40px;
+	margin: 8px;
 }
 
 .light-bar {
@@ -27,14 +48,14 @@
 	width: 15px;
 	border-radius: 50%;
 	/*border: solid 2px #fff;*/
-	background: radial-gradient(#A00, #D77);
+	background: radial-gradient(#800, #D77);
 }
 
 .playing {
 	background: #F00;
-	-webkit-box-shadow: 0px 0px 4px 4px rgba(255,170,170,1);
-	-moz-box-shadow: 0px 0px 4px 4px rgba(255,170,170,1);
-	box-shadow: 0px 0px 4px 4px rgba(255,170,170,1);
+	-webkit-box-shadow: 0px 0px 3px 3px rgba(255,170,170,1);
+	-moz-box-shadow: 0px 0px 3px 3px rgba(255,170,170,1);
+	box-shadow: 0px 0px 3px 3px rgba(255,170,170,1);
 }
 
 .instrument-container {
