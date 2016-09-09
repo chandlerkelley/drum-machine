@@ -32,6 +32,7 @@
 				<div class="instrument-name">{{instrument.name}}</div>
 				<div class="dot-container">
 					<div ng-repeat="note in instrument.notes track by $index"
+					class="note"
 					ng-class="{'note-on' : note.value, 'note-off' : !(note-value), 'quaver' : note.quaver}"
 					ng-click="$ctrl.noteOn(note)"></div>
 				</div>
