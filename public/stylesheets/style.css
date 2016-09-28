@@ -8,6 +8,7 @@
 	display: flex;
 	background-color: #CCC;
 	border-radius: 8px;
+	border: solid 4px #000;
 }
 
 .instrumentsOnDeck {
